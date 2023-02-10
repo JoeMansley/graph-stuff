@@ -14,7 +14,7 @@ def EulerPath(inputAdjList):
             
     v1=0
     for j,a in enumerate(adjList):
-        d=inDeg[j]-len(a) #in degree - out degree
+        d=len(a)-inDeg[j] #out degree - in degree
         if d==1:
             v1=j
             break
