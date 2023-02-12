@@ -13,21 +13,16 @@ def EulerPath(inputAdjList):
             inDeg[k]+=1
             
     v1=0
-    found1=False
-    foundm1=False
+    m,M=-1,1 
     for j,a in enumerate(adjList):
         d=len(a)-inDeg[j] #outdegree - indegree
-        if d>1 or d<-1:
+        if d>M or d<m:
             return False
-        if d==1:
-            if found1:
-                return False
-            v1=j
-            found1==True
         if d==-1:
-            if foundm1:
-                return False
-            foundm1=True
+            m=0
+        elif d==1:
+            M=0
+            v1=j
 
     def walkFrom(u):
         walk=[u]
